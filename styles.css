@@ -1,0 +1,193 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --scr-blue: #3060d0;
+  --scr-mid:   #a0b8f0;
+  --scr-dark:  #0a0f2e;
+  --pixel:     'Press Start 2P', monospace;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--pixel);
+  gap: 16px;
+  padding: 24px 12px;
+      background: linear-gradient(237deg, #ec6e6e, #4a6cd2);
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimationName 10s ease infinite;
+    -moz-animation: AnimationName 10s ease infinite;
+    animation: AnimationName 10s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:5% 0%}
+    50%{background-position:96% 100%}
+    100%{background-position:5% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:5% 0%}
+    50%{background-position:96% 100%}
+    100%{background-position:5% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:5% 0%}
+    50%{background-position:96% 100%}
+    100%{background-position:5% 0%}
+}
+
+
+h1 {
+  font-size: clamp(11px, 3vw, 18px);
+  color: var(--scr-blue);
+  letter-spacing: 4px;
+}
+
+#app {
+  display: flex;
+  justify-content: center;
+}
+
+.gba-wrapper {
+  position: relative;
+  width: clamp(380px, 90vw, 720px);
+}
+
+.gba-img {
+  width: 100%;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+.screen-overlay {
+  position: absolute;
+  top: 17%;
+  left: 28.5%;
+  width: 42.9%;
+  height: 48%;
+  background: var(--scr-dark);
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+#poke-img {
+  width: 80px;
+  height: 75px;
+  align-self: center;
+}
+
+.state {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 6px 5px;
+  transition: opacity 0.2s;
+}
+
+.hidden { opacity: 0; pointer-events: none; }
+
+
+
+@keyframes blink {
+  0%,100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+
+.spinner {
+  width: 18px; height: 18px;
+  border: 2px solid #1a3808;
+  border-top-color: var(--scr-blue);
+  border-radius: 50%;
+  animation: spin 0.65s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.loading-txt {
+  font-size: 5px;
+  color: var(--scr-mid);
+}
+
+#state-info {
+  justify-content: flex-start;
+  padding: 4px 5px;
+  gap: 1px;
+}
+
+.poke-top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--scr-mid);
+  padding-bottom: 2px;
+  margin-bottom: 1px;
+}
+
+#poke-id   { font-size: 8px; color: var(--scr-mid); }
+#poke-name { font-size: 6.5px; color: var(--scr-blue); }
+
+
+
+.poke-data {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 2px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 6px;
+  border-bottom: 1px solid rgba(155,188,15,0.12);
+  padding-bottom: 1px;
+}
+
+.lbl { color: var(--scr-mid); }
+.val { color: var(--scr-blue); text-align: right; max-width: 56%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.err-msg { font-size: 5px;  color: #cc3333; }
+
+#button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+#button-container button {
+  font-family: var(--pixel);
+  font-size: 7px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #fff;
+}
+
+#previous { background: #2244cc; }
+#next     { background: #cc2222; }
+#random   { background: #227722; }
+
+#button-container button:hover  { opacity: 0.65; }
+#button-container button:active { opacity: 0.7;  }
+
+.poke-desc {
+  width: 100%;
+  font-size: 6px;
+  color: var(--scr-mid);
+  margin-top: 3px;
+  line-height: 1.6;
+
+}

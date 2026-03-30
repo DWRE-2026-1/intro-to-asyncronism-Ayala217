@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"/>
+    <title>Pokédex</title>
+  </head>
+  <body>
+
+    <h1>Pokédex</h1>
+
+    <div id="app">
+      <div class="gba-wrapper">
+
+        <img src="gba.png" class="gba-img" />
+
+        <div class="screen-overlay">
+
+          <div class="state hidden" id="state-loading">
+            <div class="spinner"></div>
+            <p class="loading-txt">CARGANDO…</p>
+          </div>
+
+          <div class="state hidden" id="state-info">
+            <div class="poke-top">
+              <span id="poke-id">#000</span>
+              <span id="poke-name">———</span>
+            </div>
+            <img id="poke-img" src="" alt="sprite" />
+            <div class="poke-data">
+                
+              <div class="row"><span class="lbl">TIPO</span><span id="poke-type" class="val">—</span></div>
+              <div class="row"><span class="lbl">PESO</span><span id="poke-weight" class="val">—</span></div>
+              <div class="row"><span class="lbl">ALTURA</span><span id="poke-height" class="val">—</span></div>
+              <div class="row"><span class="lbl">HABILIDAD</span><span id="poke-ability" class="val">—</span></div>
+              <div class="row"><span class="lbl">LEGENDARIO</span><span id="poke-legendary" class="val">—</span></div>
+              <div class="row"><span class="lbl">CAPTURA</span><span id="poke-capture" class="val">—</span></div>
+              <div class="row"><span class="lbl">ZONA</span><span id="poke-zone" class="val">—</span></div>
+            </div>
+            <p id="poke-desc" class="poke-desc">—</p>
+          </div>
+
+          <div class="state hidden" id="state-error">
+            
+            <p class="err-msg">NO ENCONTRADO</p>
+          </div>
+
+          <div class="scanlines"></div>
+        </div>
+
+        <div id="button-container">
+          <button id="previous">ANT.</button>
+          <button id="random">RANDOM</button>
+          <button id="next">SIG.</button>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
